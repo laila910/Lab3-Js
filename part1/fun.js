@@ -51,4 +51,63 @@ switch(operator){
 }
 
 }
+function repeatCalcFun(firstNo,op,secondNo){
+    var firstNumber=Number(firstNo);
+    var secondNumber=Number(secondNo);
+    var operator=op;
+    
+    alert(`your first numer equal to ${firstNumber}`);
+    alert(`your second number equal to ${secondNumber}`);
+    alert(`your operation equal to ${operator}`);
+    switch(operator){
+        case 'sum':
+            sum=firstNumber + secondNumber;
+            alert(firstNumber + secondNumber);
+            break;
+        case 'subtract':
+            sum=firstNumber - secondNumber;
+            alert(firstNumber - secondNumber);
+            break;
+        case 'multi':
+            sum=firstNumber * secondNumber;
+            alert(firstNumber * secondNumber);
+            break;
+        case 'division':
+            sum=firstNumber / secondNumber;
+            alert(firstNumber / secondNumber);
+            break;
+        case 'moduls':
+            sum=firstNumber % secondNumber;
+            alert(firstNumber % secondNumber);
+            break;
+       
+    
+    }
+    var answer = prompt("you want to make one more operation (yes)");
+    if(answer=="yes"){
+        repeatop(sum);
+    }else{
+        alert('thanks for using our calculator');
+    }
+
+
+
+
+
+    // while(!stop){
+    //     sum = sum + Number(prompt("enter number"));
+    //     var answer = prompt("do you want to exit (yes,no)");
+    //     if(answer=="yes"){
+    //         stop = true;
+    //     }
+    // }
+
+
+}
+function repeatop(sum){
+    var operation=prompt('please enter your operation');
+    var secNo=Number(prompt('please enter your second number'));
+    repeatCalcFun(sum,operation,secNo);
+
+}
        
