@@ -1,3 +1,0 @@
-function submitFun(username,password){
-
-}
