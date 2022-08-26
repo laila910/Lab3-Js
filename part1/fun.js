@@ -20,4 +20,35 @@ function submitFun(username,password){
 
 
 }
+
+function calcFun(firstNo,op,secondNo){
+var firstNumber=Number(firstNo.value);
+var secondNumber=Number(secondNo.value);
+var operator=op.value;
+// alert(firstNumber);
+// console.log(secondNumber);
+// console.log(operator);
+
+
+switch(operator){
+    case 'sum':
+        alert(firstNumber + secondNumber);
+        break;
+    case 'subtract':
+        alert(firstNumber - secondNumber);
+        break;
+    case 'multi':
+        alert(firstNumber * secondNumber);
+        break;
+    case 'division':
+        alert(firstNumber / secondNumber);
+        break;
+    case 'moduls':
+        alert(firstNumber % secondNumber);
+        break;
+   
+
+}
+
+}
        
