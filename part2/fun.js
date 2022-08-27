@@ -19,17 +19,28 @@ alert(`the sum of the entered values equal to ${sum} and the average equal to ${
 function phonebook(){
 var operation = prompt('please enter your operation "add" or "search"');
 var ContactsArray=[];
+
 if(operation=='add'){
 var contactname =String(prompt("please enter the name of the contact"));
 var phonenumber=Number(prompt('please enter the phone number of the contact'));
 var contactObj={};
 contactObj.ContactName=contactname;
 contactObj.phoneNumber=phonenumber;
+
 for(var property in contactObj) {
     alert(property + "=" + contactObj[property]);
 }
+alert(`{"ContactName":${contactObj.ContactName},"phoneNumber":${contactObj.phoneNumber}}`);
+
+
 ContactsArray.push(contactObj);
+alert(ContactsArray.length);
+
+alert(ContactsArray);
+
+
 phonebook();
+
 }else if(operation=='search'){
 var searchContact=prompt("please enter what you search for");
 alert(ContactsArray);
