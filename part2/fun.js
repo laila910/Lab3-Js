@@ -16,51 +16,48 @@ alert(`the sum of the entered values equal to ${sum} and the average equal to ${
 
 }
 
-function phonebook(){
-var operation = prompt('please enter your operation "add" or "search"');
-var ContactsArray=[];
-
-if(operation=='add'){
-var contactname =String(prompt("please enter the name of the contact"));
-var phonenumber=Number(prompt('please enter the phone number of the contact'));
-var contactObj={};
-contactObj.ContactName=contactname;
-contactObj.phoneNumber=phonenumber;
-
-for(var property in contactObj) {
-    alert(property + "=" + contactObj[property]);
+var contacts = [
+    {
+        name:"laila",
+        phone:"123"
+    }
+];
+function addNewContact(){
+    var newContact = {};
+    newContact.name = prompt("enter contact name");
+    newContact.phone = prompt("enter contact phone");
+    contacts.push(newContact);
 }
-alert(`{"ContactName":${contactObj.ContactName},"phoneNumber":${contactObj.phoneNumber}}`);
+function searchForContact(){
+    var searchKeyword = prompt("enter name or phone");
+    for(var i =0;i<contacts.length;i++){
+        var currentContact = contacts[i];
+        if(searchKeyword == currentContact.name || searchKeyword == currentContact.phone){
+            alert("name = "+currentContact.name +" phone = "+currentContact.phone);
+            break;
+        }
 
-
-ContactsArray.push(contactObj);
-alert(ContactsArray.length);
-
-alert(ContactsArray);
-
-
-phonebook();
-
-}else if(operation=='search'){
-var searchContact=prompt("please enter what you search for");
-alert(ContactsArray);
-alert(ContactsArray.length);
-for(var i=0;i<ContactsArray.length;i++){
-    alert(ContactsArray[i]);
-    for(var key in ContactsArray[i]){
-        alert(ContactsArray[i].key);
-        alert(key.includes(searchContact));
-      
-        if(ContactsArray[i].key.includes(searchContact)){   
-            alert(`found your search`);  
-                alert(`the full details of your search are ${ContactsArray[i].ContactName} and ${ContactsArray[i].phoneNumber}`);
-        }   
     }
 }
-phonebook();
 
-}
+function phonebook(){
+    var stop = false;
+    do{
+        var op = prompt("what do you want (add,search,exit)");
+        switch(op){
+            case "add":
+                addNewContact();
+            break;
+            case "search":
+                searchForContact();
 
+            break;
+            case "exit":
+                stop = true;
+            break;
+
+        }
+    }while(!stop);
 }
 function areaCalc(){
     var area=0;
@@ -114,3 +111,51 @@ function areaCalc(){
         
     }
 }
+
+// function phonebook(){
+
+// var operation = prompt('please enter your operation "add" or "search"');
+// var ContactsArray=[];
+
+// if(operation=='add'){
+// var contactname =String(prompt("please enter the name of the contact"));
+// var phonenumber=Number(prompt('please enter the phone number of the contact'));
+// var contactObj={};
+// contactObj.ContactName=contactname;
+// contactObj.phoneNumber=phonenumber;
+
+// for(var property in contactObj) {
+//     alert(property + "=" + contactObj[property]);
+// }
+// alert(`{"ContactName":${contactObj.ContactName},"phoneNumber":${contactObj.phoneNumber}}`);
+
+
+// ContactsArray.push(contactObj);
+// alert(ContactsArray.length);
+
+// alert(ContactsArray);
+
+
+// phonebook();
+
+// }else if(operation=='search'){
+// var searchContact=prompt("please enter what you search for");
+// alert(ContactsArray);
+// alert(ContactsArray.length);
+// for(var i=0;i<ContactsArray.length;i++){
+//     alert(ContactsArray[i]);
+//     for(var key in ContactsArray[i]){
+//         alert(ContactsArray[i].key);
+//         alert(key.includes(searchContact));
+      
+//         if(ContactsArray[i].key.includes(searchContact)){   
+//             alert(`found your search`);  
+//                 alert(`the full details of your search are ${ContactsArray[i].ContactName} and ${ContactsArray[i].phoneNumber}`);
+//         }   
+//     }
+// }
+// phonebook();
+
+// }
+
+// }
