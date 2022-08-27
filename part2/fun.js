@@ -100,6 +100,7 @@ function areaCalc(){
             h=parseInt(prompt('please enter the height'));
             area=((1/2) *(a+b)) * h;
             alert(`area of trapezium equal to ${area}`);
+            break;
         case 'ellipse':
             a =parseInt(prompt('please enter your minor axis'));
             b = parseInt(prompt('please enter your major axis'));
