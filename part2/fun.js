@@ -62,3 +62,54 @@ phonebook();
 }
 
 }
+function areaCalc(){
+    var area=0;
+    var shapename=prompt('please enter the name of shape you want to calculate its\'array');
+    switch(shapename){
+        case 'circle':
+            var r =parseInt(prompt('please enter the radius of circle'));
+             area = Math.PI * Math.pow(r,2);
+            alert(`the area of circle is ${area}`);
+            break;
+        case 'triangle':
+            var b =parseInt(prompt('please enter your base'));
+            var h=prompt('please enter your height');
+            area = 0.5 * b *h;
+            alert(`area of triangle is ${area}`);
+            break;
+        case 'square':
+            var a = parseInt(prompt('please enter your length of side'));
+            area = Math.pow(a,2);
+            alert(`area of square equal to ${area}`);
+            break;
+        case 'rectangle':
+            var l =parseInt(prompt('please enter your length'));
+            var w =parseInt(prompt('please enter your width'));
+            area = l*w;
+            alert(`area of rectangle is ${area}`);
+            break;
+        case 'parallelogram':
+            b = parseInt(prompt('please enter your base'));
+            h = parseInt(prompt('please enter vertical height'));
+            area=b*h;
+            alert(`area of parallelogram equal to ${area}`);
+            break;
+        case 'trapezium':
+            a =parseInt(prompt('please enter one of length of parallel side'));
+            b =parseInt(prompt('please enter the second length of parallel side'));
+            h=parseInt(prompt('please enter the height'));
+            area=((1/2) *(a+b)) * h;
+            alert(`area of trapezium equal to ${area}`);
+        case 'ellipse':
+            a =parseInt(prompt('please enter your minor axis'));
+            b = parseInt(prompt('please enter your major axis'));
+            area = Math.PI * (a/2) * (b/2);
+            alert(`area of ellipse equal to ${area}`);
+            break;
+
+
+
+        
+        
+    }
+}
