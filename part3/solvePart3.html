@@ -326,7 +326,60 @@ console.log(beasts.indexOf('giraffe'));
 // expected output: -1 // means it's not found
 //-------------------------------------------------------------------------------------------------------------------------
 // ## Ex3: Write a nested function and explain the closure -> lexical environment.
+// Lexical scope is an important part of closures, but it is not a closure by itself.
+// Closures are an advanced concept that is also a frequent topic of technical interviews.
+// Lexical scope describes how nested (also known as "child") functions have access to variables defined in parent scopes.
+const myFunction = () => {
+     let myValue = 2;
+     console.log(myValue);  // 2
 
+     const childFunction = () => {
+          console.log(myValue += 1); // (2 + 1 = 3)
+     }
+
+     childFunction();
+}
+
+myFunction();
+// In this example, childFunction has access to the variable myValue which is defined in the parent scope of myFunction.
+// The lexical scope of childFunction allows access to the parent scope.
+
+// A closure is a function having access to the parent scope, even after the parent function has closed.
+// Let's note the first part of the sentence before the comma:
+// ...a function having access to the parent scope
+// That's describing lexical scope!
+// But we need the second part of the definition to give an example of a closure...
+// ...even after the parent function has closed.
+// Let's look at an example of a closure:
+
+const myFunction2 = () => {
+     let myValue = 2;
+     console.log(myValue); // 2
+
+     const childFunction = () => {
+          console.log(myValue += 1);
+     }
+
+     return childFunction;
+}
+
+const res = myFunction2();
+console.log(res); // () => {      console.log(myValue += 1); }
+res(); // 3
+res(); // 4
+res(); // 5 
+// In this revision, myFunction returns childFunction instead of calling it.
+// Therefore, when result is set equal to myFunction(), the console statement 
+// inside myFunction is logged, but not the statement inside childFunction.
+// childFunction is not called into action.
+// Instead, it is returned and held in result.
+// In addition, we need to realize that myFunction has closed after it was called.
+// The line with console.log(result) should show in the console that result now 
+// holds the anonymous function value that was childFunction.
+// Now, when we call result(), we are calling the anonymous function that was assigned to childFunction.
+// As a child of myFunction, this anonymous function has access to the myValue variable
+//  inside myFunction even after it has closed!
+// The closure we created now allows us to continue to increase the value of the myValue variable every time we call result().
 </script>
 
     
